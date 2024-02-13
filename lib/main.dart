@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:qr_scanner/pages/qr_scan.dart';
 import 'package:qr_scanner/pages/splash_screen.dart';
+import 'package:qr_scanner/pages/user_data.dart';
 void main() {
   runApp(const QR_Scanner());
 }
@@ -13,10 +14,11 @@ class QR_Scanner extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/splash',
+      initialRoute: '/user_data',
       routes: {
         '/': (context) => SplashScreen(),
         '/qr_scan': (context) => QrScan(),
+        '/user_data':(context) => UserData(),
       },
     ) ;
   }
