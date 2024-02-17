@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:qr_scanner/pages/user_data.dart';
 
 class QrScan extends StatefulWidget {
   const QrScan({super.key});
@@ -38,7 +39,17 @@ class _QrScanState extends State<QrScan> {
             Expanded(
               flex: 1,
               child: Center(
-                child: Text(_scanData),
+                child: _scanData.isEmpty
+                    ? CircularProgressIndicator()
+                    : ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UserData(id: _scanData)),
+                          );
+                        },
+                        child: Text('Show User Data')),
               ),
             ),
           ],
